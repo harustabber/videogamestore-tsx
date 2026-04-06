@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff0f5; /* light pink base */
-  --foreground: #171717;
+  --background: #eef2ff; /* light lavender background */
+  --foreground: #0f172a;
 }
 
 @theme inline {
@@ -18,6 +18,18 @@
     --foreground: #ededed;
   }
 }
+
+@layer base {
+  :root {
+    --kuro-bg: #E2E8F0;
+    --kuro-sidebar: #6D5DD3;
+    --kuro-primary: #4D3BB9;
+    --kuro-secondary: #FF7594;
+  }
+}
+
+.kuro-bg { @apply bg-[var(--kuro-bg)]; }
+.kuro-logo { color: var(--kuro-sidebar); @apply font-black tracking-tighter; }
 
 body {
   background: var(--background);

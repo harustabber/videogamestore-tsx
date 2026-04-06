@@ -55,4 +55,13 @@ npm install lucide-react clsx
 npm run dev
 ```
 
+### 🛒 Cómo agregar productos
+
+El inventario se administra desde la ruta `/admin`.
+
+1. Abre `http://localhost:3000/admin`.
+2. Agrega el nombre del producto y la URL de la imagen.
+3. Guarda el item.
+4. Vuelve a la página principal para ver los productos cargados desde `localStorage`.
+
 Se usa un proveedor de carrito (`store/cartContext.tsx`) y datos estáticos en `data/products.ts`. Los componentes importantes están en `components/`.

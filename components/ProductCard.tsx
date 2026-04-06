@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { Product } from "../types/product";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
@@ -17,17 +16,15 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   };
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-lg border border-kuromi-pink/50 bg-white shadow hover:shadow-lg">
-      <div className="aspect-square bg-kuromi-light">
-        <Image
+    <div className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-[#d7dcf6] bg-white shadow-lg hover:shadow-2xl max-w-[320px] mx-auto">
+      <div className="h-80 w-full overflow-hidden rounded-[1.75rem] bg-kuromi-light">
+        <img
           src={product.images[0] || "/placeholder.png"}
           alt={product.name}
-          width={400}
-          height={400}
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="flex flex-1 flex-col p-4">
+      <div className="flex flex-1 flex-col p-5">
         <h3 className="text-sm font-medium text-gray-900">{product.name}</h3>
         <p className="mt-1 text-lg font-semibold text-gray-700">
           ${product.price.toFixed(2)}
