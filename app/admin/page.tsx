@@ -9,6 +9,7 @@ export default function AdminPage() {
   const [items, setItems] = useState<{ name: string; imageUrl: string }[]>([]);
   const [newItem, setNewItem] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("my_games");
@@ -16,11 +17,14 @@ export default function AdminPage() {
   }, []);
 
   const handleAddItem = () => {
-    if (!newItem || !imageUrl) return alert("Rellena todo, fiera");
-    const updated = [...items, { name: newItem, imageUrl }];
+    if (!newItem || !imageUrl) return alert("Rellena todo antes de guardar");
+    const updated = [...items, { name: newItem, imageUrl: imageUrl }];
     setItems(updated);
     localStorage.setItem("my_games", JSON.stringify(updated));
-    setNewItem("");
+    // Feedback visual
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 3000);
+    setNewItem(""); 
     setImageUrl("");
   };
 
@@ -34,7 +38,7 @@ export default function AdminPage() {
   return (
     <div className="flex min-h-screen bg-[#eef0ff]">
       <Sidebar />
-      <main className="flex-1 p-6 lg:p-10">
+      <main className="flex-1 p-6 lg:p-10" style={{ padding: "calc(var(--spacing) * 4)" }}>
         <div className="rounded-[3rem] bg-white/80 p-6 shadow-2xl ring-1 ring-white/60 backdrop-blur-xl border border-white/70">
           <header className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
